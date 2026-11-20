@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SSP — Espace agent vocal</title>
+<link rel="stylesheet" href="/style.css">
+<script type="module" src="/app.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/" aria-label="Solidarité Sérénité Prévoyance">
+    <svg width="49" height="31" viewBox="0 0 70 44" fill="none" aria-hidden="true"><defs><linearGradient id="brand"><stop stop-color="#008477"/><stop offset="1" stop-color="#e7aa24"/></linearGradient></defs><path d="M46 22 29 8C17-2 3 6 3 22s14 24 26 14l13-10M34 14l9-7C54-1 67 6 67 22s-13 23-24 15L27 25" stroke="url(#brand)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Solidarité<br>Sérénité Prévoyance</span>
+  </a>
+  <nav aria-label="Navigation">
+    <span class="nav-label">ESPACE DE TRAVAIL</span>
+    <button class="nav-button selected" data-view="home"><i data-icon="grid"></i> Vue d’ensemble</button>
+    <button class="nav-button" data-view="history"><i data-icon="history"></i> Historique</button>
+  </nav>
+  <div class="sidebar-footer"><div class="avatar">SS</div><span><strong>Équipe SSP</strong><small>Espace collaborateur</small></span></div>
+</aside>
+<div class="layout">
+<header><span>Relation client <b> / </b> <strong id="breadcrumb">Vue d’ensemble</strong></span><span class="demo" id="connection" role="status">Connexion…</span></header>
+<main><p id="notice" role="alert" hidden></p>
+<section id="home">
+  <div class="intro"><div><div class="eyebrow">RELATION CLIENT</div><h1>Agent vocal</h1><p>Suivez les appels déclenchés par votre outil et les demandes de rappel.</p></div><button class="primary" id="refresh"><i data-icon="history"></i> Actualiser</button></div>
+  <div class="stats">
+    <div class="stat"><div class="stat-icon green"><i data-icon="phone"></i></div><div><span>Appels terminés</span><strong id="count">0</strong></div></div>
+    <div class="stat"><div class="stat-icon gold"><i data-icon="clock"></i></div><div><span>Suivis à traiter</span><strong id="pending">0</strong></div></div>
+    <div class="stat"><div class="stat-icon violet"><i data-icon="report"></i></div><div><span>Comptes rendus</span><strong id="reports">0</strong></div></div>
+  </div>
+  <div class="work-area">
+    <section class="panel queue"><div class="panel-head"><div><h2>File d’appels</h2><p>Appels envoyés au service téléphonique</p></div><span class="count-pill" id="queue-count"></span></div><div id="queue"></div></section>
+    <section class="agent-card">
+      <div class="agent-content"><span class="agent-status"><span></span><span id="agent-status">Connexion…</span></span>
+      <div class="orb" aria-hidden="true"><div class="orb-inner"><span></span><span></span><span></span><span></span><span></span></div></div>
+      <h2>Assistant SSP</h2><p id="agent-description">Les appels se déclenchent dès réception d’une demande de rappel autorisée.</p>
+      </div>
+    </section>
+  </div>
+  <section class="panel recent"><div class="panel-head"><div><h2>Activité récente</h2><p>Les derniers appels et leur suivi</p></div><button class="text-button" data-view="history">Voir l’historique <i data-icon="arrow"></i></button></div><div id="recent"></div></section>
+</section>
+<section id="history" hidden><div class="intro"><div><div class="eyebrow">RELATION CLIENT</div><h1>Historique</h1><p>Consultez les comptes rendus et gérez les suivis.</p></div></div><section class="panel"><div class="panel-head"><h2>Appels terminés</h2></div><div id="all-reports"></div></section></section>
+</main>
+<footer>Solidarité Sérénité Prévoyance <span>·</span> Toute la vie, et même après.</footer>
+</div>
+<dialog id="report-dialog"><div class="dialog-head"><div><div class="eyebrow">COMPTE RENDU</div><h2 id="report-name"></h2></div><form method="dialog"><button class="icon-button" aria-label="Fermer"><i data-icon="close"></i></button></form></div><div id="report-content"></div><div class="dialog-footer"><button class="primary" id="mark-done">Marquer le suivi traité</button></div></dialog>
+</body>
+</html>

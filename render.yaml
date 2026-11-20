@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: milive-ssp
+    runtime: node
+    plan: starter
+    buildCommand: npm test
+    startCommand: npm start
+    healthCheckPath: /health
+    disk:
+      name: ssp-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "24.22.1"
+      - key: DB_PATH
+        value: /var/data/calls.sqlite
+      - key: DASHBOARD_PASSWORD
+        generateValue: true
+      - key: CRM_TOKEN
+        generateValue: true
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_FROM
+        sync: false
